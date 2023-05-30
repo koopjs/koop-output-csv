@@ -1,0 +1,274 @@
+[
+  {
+    "id": "b08f51d9fbb34c4f9712533e26147903",
+    "type": "Feature",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -77.004247,
+            38.953052
+          ],
+          [
+            -76.943021,
+            38.953052
+          ],
+          [
+            -76.943021,
+            38.868145
+          ],
+          [
+            -77.004247,
+            38.868145
+          ],
+          [
+            -77.004247,
+            38.953052
+          ]
+        ]
+      ]
+    },
+    "properties": {
+      "id": "b08f51d9fbb34c4f9712533e26147903",
+      "owner": "DCGISopendata",
+      "created": 1675092548000,
+      "modified": 1683509024000,
+      "guid": null,
+      "name": null,
+      "title": "Trail Mile Markers",
+      "type": "Feature Service",
+      "typeKeywords": [
+        "ArcGIS Server",
+        "Data",
+        "Feature Access",
+        "Feature Service",
+        "Metadata",
+        "Service",
+        "Singlelayer"
+      ],
+      "description": "<div style='text-align:Left;'><div><div><p><span>The Trail Mile Marker dataset includes mile marker locations on the sections of the Anacostia River Trail, Metropolitan Branch Trail, and Klingle Valley Trail. The markers are generally marked every tenth of a mile with a sign and/or pavement marking. Mile markers are used to report maintenance needs and assist in emergency response.</span></p></div></div></div>",
+      "tags": [
+        "Trails",
+        "Bikes",
+        "911",
+        "Emergency",
+        "Wayfinding",
+        "Anacostia River",
+        "Anacostia River Trail"
+      ],
+      "snippet": "This dataset was developed to capture the locations of the mile markers on DC Trails. These mile markers were installed on the trail in 2022 to aid in wayfinding and emergency response.",
+      "thumbnail": "thumbnail/thumbnail.JPEG",
+      "documentation": null,
+      "extent": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -77.004247,
+              38.953052
+            ],
+            [
+              -76.943021,
+              38.953052
+            ],
+            [
+              -76.943021,
+              38.868145
+            ],
+            [
+              -77.004247,
+              38.868145
+            ],
+            [
+              -77.004247,
+              38.953052
+            ]
+          ]
+        ]
+      },
+      "categories": [
+        "/Categories/Recreation"
+      ],
+      "spatialReference": null,
+      "accessInformation": "District Department of Transportation",
+      "licenseInfo": "<DIV STYLE=\"text-align:Left;\"><DIV><DIV><P><SPAN>This work is licensed under a </SPAN><A href=\"https://creativecommons.org:443/licenses/by/4.0/\" STYLE=\"text-decoration:underline;\"><SPAN>Creative Commons Attribution 4.0 International License</SPAN></A><SPAN>.</SPAN></P></DIV></DIV></DIV>",
+      "culture": "en-us",
+      "properties": null,
+      "advancedSettings": null,
+      "url": "https://maps2.dcgis.dc.gov/dcgis/rest/services/DCGIS_DATA/Transportation_Bikes_Trails_WebMercator/MapServer/0",
+      "proxyFilter": null,
+      "access": "public",
+      "size": -1,
+      "subInfo": 0,
+      "appCategories": [],
+      "industries": [],
+      "languages": [],
+      "largeThumbnail": null,
+      "banner": null,
+      "screenshots": [],
+      "listed": false,
+      "numComments": 0,
+      "numRatings": 0,
+      "avgRating": 0,
+      "numViews": 393,
+      "scoreCompleteness": 96,
+      "groupDesignations": null,
+      "lastViewed": 1685376000000,
+      "license": "CC",
+      "source": "DC"
+    },
+    "time": null,
+    "links": [
+      {
+        "rel": "self",
+        "type": "application/geo+json",
+        "title": "This document as GeoJSON",
+        "href": "https://datahub-dc-dcgis.hub.arcgis.com/api/search/v1/collections/dataset/items/b08f51d9fbb34c4f9712533e26147903"
+      },
+      {
+        "rel": "collection",
+        "type": "application/json",
+        "title": "Data",
+        "href": "https://datahub-dc-dcgis.hub.arcgis.com/api/search/v1/collections/dataset"
+      }
+    ]
+  },
+  {
+    "id": "3a9e6d16d7374b5b9740888edc12ac13",
+    "type": "Feature",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -77.102566,
+            38.980792
+          ],
+          [
+            -76.913725,
+            38.980792
+          ],
+          [
+            -76.913725,
+            38.822057
+          ],
+          [
+            -77.102566,
+            38.822057
+          ],
+          [
+            -77.102566,
+            38.980792
+          ]
+        ]
+      ]
+    },
+    "properties": {
+      "id": "3a9e6d16d7374b5b9740888edc12ac13",
+      "owner": "DCGISopendata",
+      "created": 1425071409000,
+      "modified": 1664976483000,
+      "guid": null,
+      "name": null,
+      "title": "Condo Approval Lots",
+      "type": "Feature Service",
+      "typeKeywords": [
+        "ArcGIS Server",
+        "Data",
+        "Feature Access",
+        "Feature Service",
+        "Metadata",
+        "Service"
+      ],
+      "description": "<div style='text-align:Left;'><div><div><p><span>Condo lots are individual lots for each condominium. The lot numbers normally range from 2000-6999. These condo lots are not geographically defined other than being within a air rights, record, tax or a combination of lots that has one or more condo buildings within it. A condo regime number is assigned to each residential Condo application or Article of Confederation regardless of how many buildings there are at any one site. The Regime number starts with a 1, 2, or 3 depending upon where the condo is located and where they fall in the tri-annual assessment process of RPTA. All numbers after the first are consecutive. RPTA maintains the master list of Regime numbers for residential properties. Commercial condos are not associated with a Regime number and in order to properly track all condos, a unique Regime number was created. RPTA then establishes individual accounts for each condominium unit and assigns a condo lot number to that account. RPTA maintains the master list of Regime numbers and their relationship to approved condos. There are roughly 66571 condo lots and there associations are as follows: 49486 condos were approved for record lots, 16867 were approved for tax lots, 2817 were approved for air rights lots, and 2600 were approved for both air rights and tax lots. The CondoPly layer was created to assist users in visualizing the relationship between ground surface lots (Record Lots), overlay lots (Air Rights &amp; Tax Lots), and the associated Condos. When Condos are approved for ground lots, those lots remain in the production (active) layer and attributes updated to reflect the new condos. When Condos are approved for overlay lots, those lots are killed (dead lots) and archived to their respective history layer. Condo dwellings can also be queried city-wide via the individual VPM layers (active Record lots, dead Air Rights &amp; Tax lots) where the value in the “UNDERLIES_CONDO” field is equal to 1.</span></p></div></div></div>",
+      "tags": [
+        "DC",
+        "District of Columbia",
+        "Land",
+        "Lot",
+        "planning cadastre",
+        "Property",
+        "Square",
+        "vpmdata",
+        "Washington DC",
+        "DOB",
+        "condo",
+        "condominium"
+      ],
+      "snippet": "This data is used for the planning and management of Washington, D.C. by local government agencies.",
+      "thumbnail": "thumbnail/thumbnail1664976482127.png",
+      "documentation": null,
+      "extent": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -77.102566,
+              38.980792
+            ],
+            [
+              -76.913725,
+              38.980792
+            ],
+            [
+              -76.913725,
+              38.822057
+            ],
+            [
+              -77.102566,
+              38.822057
+            ],
+            [
+              -77.102566,
+              38.980792
+            ]
+          ]
+        ]
+      },
+      "categories": [
+        "/Categories/Property and Land/Condominium"
+      ],
+      "spatialReference": "[object Object]",
+      "accessInformation": "Department of Buildings",
+      "licenseInfo": "<DIV STYLE=\"text-align:Left;\"><DIV><DIV><P><SPAN>This work is licensed under a </SPAN><A href=\"https://creativecommons.org:443/licenses/by/4.0/\" STYLE=\"text-decoration:underline;\"><SPAN>Creative Commons Attribution 4.0 International License</SPAN></A><SPAN>.</SPAN></P></DIV></DIV></DIV>",
+      "culture": "english (united states)",
+      "properties": null,
+      "advancedSettings": null,
+      "url": "https://maps2.dcgis.dc.gov/dcgis/rest/services/DCGIS_DATA/Property_and_Land_WebMercator/MapServer/44",
+      "proxyFilter": null,
+      "access": "public",
+      "size": -1,
+      "subInfo": 0,
+      "appCategories": [],
+      "industries": [],
+      "languages": [],
+      "largeThumbnail": null,
+      "banner": null,
+      "screenshots": [],
+      "listed": false,
+      "numComments": 0,
+      "numRatings": 0,
+      "avgRating": 0,
+      "numViews": 6097867,
+      "scoreCompleteness": 100,
+      "groupDesignations": null,
+      "lastViewed": 1685415600000
+    },
+    "time": null,
+    "links": [
+      {
+        "rel": "self",
+        "type": "application/geo+json",
+        "title": "This document as GeoJSON",
+        "href": "https://datahub-dc-dcgis.hub.arcgis.com/api/search/v1/collections/dataset/items/3a9e6d16d7374b5b9740888edc12ac13"
+      },
+      {
+        "rel": "collection",
+        "type": "application/json",
+        "title": "Data",
+        "href": "https://datahub-dc-dcgis.hub.arcgis.com/api/search/v1/collections/dataset"
+      }
+    ]
+  }
+]
