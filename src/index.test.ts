@@ -24,7 +24,7 @@ function buildPluginAndApp(csvTemplate, csvTemplateTransforms, csvFileName) {
   app.get('/csv', function (req, res, next) {
     req.app.locals.csvTemplateTransforms = csvTemplateTransforms;
     res.locals.csvTemplate = csvTemplate;
-    req.app.locals.csvFileName = csvFileName;
+    res.locals.csvFileName = csvFileName;
     next();
   }, plugin.serve.bind(plugin));
 

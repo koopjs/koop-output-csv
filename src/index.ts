@@ -21,9 +21,9 @@ export = class OutputCsv {
   public async serve(req: Request, res: Response) {
     res.setHeader('Content-Type', 'text/csv');
     try {
-      const csvTemplate = _.get(req, 'res.locals.csvTemplate') as Record<string, any>;
-      const csvTemplateTransforms = _.get(req, 'app.locals.csvTemplateTransforms') as TransformsList;
-      const csvFileName = _.get(req, 'app.locals.csvFileName', 'output');
+      const csvTemplate = _.get(req, 'app.locals.csvTemplate') || _.get(req, 'res.locals.csvTemplate') as Record<string, any>;
+      const csvTemplateTransforms = _.get(req, 'app.locals.csvTemplateTransforms') || _.get(req, 'res.locals.csvTemplateTransforms') as TransformsList;
+      const csvFileName = _.get(req, 'res.locals.csvFileName', 'output');
 
       if (!csvTemplate) {
         throw new ServiceError('CSV feed template is not provided.', 400);
