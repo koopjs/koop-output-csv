@@ -1,0 +1,30 @@
+{
+  "name": "koop-app-example",
+  "description": "Sample koop express application with some common koop providers.",
+  "version": "0.1.0",
+  "author": "Esri R&D",
+  "bugs": {
+    "url": "https://github.com/koopjs/koop-app-example/issues"
+  },
+  "dependencies": {
+    "@koopjs/koop-output-csv": "file:../build",
+    "@koopjs/koop-provider-hub-search-ogc": "^0.0.1",
+    "config": "^3.2.5",
+    "koop": "^4.2.1"
+  },
+  "homepage": "https://github.com/koopjs/koop-app-example",
+  "keywords": [
+    "arcgis",
+    "geojson",
+    "koop",
+    "hub",
+    "csv"
+  ],
+  "license": "Apache-2.0",
+  "main": "src/index.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com:koopjs/koop-app-example.git"
+  }
+}
