@@ -1,5 +1,5 @@
 import { compileCsvFeedEntry } from './compile-csv-feed';
-import * as datasetFromApi from '../test-helpers/mock-dataset.json';
+import * as geojsonFeatures from '../test-helpers/mock-geojson-features.json';
 import { ServiceError } from './service-error';
 
 describe('generating CSV', () => {
@@ -12,7 +12,7 @@ describe('generating CSV', () => {
     }
 
     try {
-      compileCsvFeedEntry(datasetFromApi[0], csvTemplate, {});
+      compileCsvFeedEntry(geojsonFeatures[0], csvTemplate, {});
     } catch (error) {
       expect(error).toBeInstanceOf(ServiceError);
       expect(error).toHaveProperty('statusCode', 500);

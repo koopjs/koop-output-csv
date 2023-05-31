@@ -1,6 +1,6 @@
 import { readableFromArray, streamToString } from '../test-helpers/stream-utils';
 import { getCsvDataStream } from './';
-import * as datasetFromApi from '../test-helpers/mock-dataset.json';
+import * as geojsonFeatures from '../test-helpers/mock-geojson-features.json';
 
 async function generateCsv(dataset, template, templateTransforms) {
   const { csvStream } = getCsvDataStream(template, templateTransforms);
@@ -18,7 +18,7 @@ async function generateCsv(dataset, template, templateTransforms) {
 describe('generating CSV', () => {
 
   it('should interprolate dataset stream to feed based upon template', async function () {
-    const { csv } = await generateCsv(datasetFromApi, {
+    const { csv } = await generateCsv(geojsonFeatures, {
       id: '{{id}}',
       title: '{{title}}',
       modified: '{{modified:toISO}}',

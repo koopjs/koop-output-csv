@@ -5,7 +5,7 @@ import { getCsvDataStream } from './csv';
 import { TransformsList } from 'adlib';
 import { ServiceError } from './csv/service-error';
 
-export = class OutputCsv2 {
+export = class OutputCsv {
   static type = 'output';
   static version = version;
   static routes = [
@@ -23,7 +23,7 @@ export = class OutputCsv2 {
     try {
       const csvTemplate = _.get(req, 'res.locals.csvTemplate') as Record<string, any>;
       const csvTemplateTransforms = _.get(req, 'app.locals.csvTemplateTransforms') as TransformsList;
-      const csvFileName = _.get(req, 'app.locals.csvFileName', 'dataset');
+      const csvFileName = _.get(req, 'app.locals.csvFileName', 'output');
 
       if (!csvTemplate) {
         throw new ServiceError('CSV feed template is not provided.', 400);

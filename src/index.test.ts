@@ -3,7 +3,7 @@ import * as express from 'express';
 import * as request from 'supertest';
 import { PassThrough } from 'stream';
 
-import * as mockDataset from './test-helpers/mock-dataset.json';
+import * as geojsonFeatures from './test-helpers/mock-geojson-features.json';
 
 import { createMockKoopApp } from './test-helpers/create-mock-koop-app';
 import { readableFromArray } from './test-helpers/stream-utils';
@@ -17,7 +17,7 @@ function buildPluginAndApp(csvTemplate, csvTemplateTransforms, csvFileName) {
 
   const plugin = new Output();
   plugin.model = {
-    pullStream: jest.fn().mockResolvedValue(readableFromArray(mockDataset)),
+    pullStream: jest.fn().mockResolvedValue(readableFromArray(geojsonFeatures)),
   };
 
   const app = createMockKoopApp();
