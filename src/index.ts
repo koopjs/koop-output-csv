@@ -2,7 +2,6 @@ import { Request, Response } from 'express';
 import * as _ from 'lodash';
 import { version } from '../package.json';
 import { getCsvDataStream } from './csv';
-import { TransformsList } from 'adlib';
 import { ServiceError } from './csv/service-error';
 
 export = class OutputCsv {
@@ -21,12 +20,16 @@ export = class OutputCsv {
   public async serve(req: Request, res: Response) {
     res.setHeader('Content-Type', 'text/csv');
     try {
-      const csvTemplate = _.get(req, 'res.locals.csvTemplate') as Record<string, any>;
-      const csvTemplateTransforms = _.get(req, 'app.locals.csvTemplateTransforms') as TransformsList;
-      const csvFileName = _.get(req, 'app.locals.csvFileName', 'output');
+      const csvTemplate = req.res.locals.csvTemplate || req.app.locals.csvTemplate;
+      const csvTemplateTransforms = req.res.locals.csvTemplateTransforms || req.app.locals.csvTemplateTransforms;
+      const csvFileName = req.res.locals.csvFileName || 'output';
 
       if (!csvTemplate) {
         throw new ServiceError('CSV feed template is not provided.', 400);
+      }
+
+      if (!_.isPlainObject(csvTemplate)) {
+        throw new ServiceError('CSV feed template is not correct type.', 400);
       }
 
       res.setHeader('Content-Disposition', `attachment; filename=${csvFileName}.csv`);
@@ -35,10 +38,10 @@ export = class OutputCsv {
       const datasetStream = await this.getDatasetStream(req);
 
       datasetStream
+        .on('error', (err) => this.returnError(res, err))
         .pipe(csvStream)
         .pipe(res);
 
-      datasetStream.on('error', (err) => this.returnError(res, err));
     } catch (err) {
       this.returnError(res, err);
     }

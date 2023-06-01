@@ -3,7 +3,7 @@ import { compileCsvFeedEntry } from './compile-csv-feed';
 import { TransformsList } from 'adlib';
 import * as _ from 'lodash';
 
-export function getCsvDataStream(feedTemplate: Record<string, any>, feedTemplateTransforms: TransformsList) {
+export function getCsvDataStream(feedTemplate: Record<string, any>, feedTemplateTransforms?: TransformsList) {
   const csvHeaders = getCsvHeaders(feedTemplate);
 
   const streamFormatter = (chunk) => {
