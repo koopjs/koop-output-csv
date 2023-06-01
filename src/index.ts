@@ -28,7 +28,7 @@ export = class OutputCsv {
         throw new ServiceError('CSV feed template is not provided.', 400);
       }
 
-      if (!this.isRecord(csvTemplate)) {
+      if (!_.isPlainObject(csvTemplate)) {
         throw new ServiceError('CSV feed template is not correct type.', 400);
       }
 
@@ -38,10 +38,10 @@ export = class OutputCsv {
       const datasetStream = await this.getDatasetStream(req);
 
       datasetStream
+        .on('error', (err) => this.returnError(res, err))
         .pipe(csvStream)
         .pipe(res);
 
-      datasetStream.on('error', (err) => this.returnError(res, err));
     } catch (err) {
       this.returnError(res, err);
     }
@@ -61,10 +61,6 @@ export = class OutputCsv {
     } catch (err) {
       throw new ServiceError(err.message, err.status || 500);
     }
-  }
-
-  private isRecord(value: unknown): value is Record<string, unknown> {
-    return typeof value === 'object' && value !== null;
   }
 
   private getErrorResponse(err: any) {
