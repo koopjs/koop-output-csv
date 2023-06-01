@@ -12,7 +12,7 @@ type Feature = {
 export function compileCsvFeedEntry(
   geojsonFeature: Feature | undefined,
   feedTemplate: CsvDatasetTemplate,
-  feedTemplateTransforms: TransformsList): string {
+  feedTemplateTransforms: TransformsList | undefined): string {
   try {
     const csvItem = generateCsvItem(geojsonFeature, feedTemplate, feedTemplateTransforms);
     return csvItem;
@@ -21,7 +21,7 @@ export function compileCsvFeedEntry(
   }
 }
 
-function generateCsvItem(geojsonFeature: Feature, feedTemplate: CsvDatasetTemplate, feedTemplateTransforms: TransformsList): string {
+function generateCsvItem(geojsonFeature: Feature, feedTemplate: CsvDatasetTemplate, feedTemplateTransforms: TransformsList | undefined): string {
   const { properties } = geojsonFeature;
 
   const interpolatedFields = adlib(

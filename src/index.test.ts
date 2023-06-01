@@ -88,6 +88,20 @@ describe('Output Plugin', () => {
       });
   });
 
+  it('should return error if CSV template is incorrect format', async () => {
+    const csvTemplate = 'test';
+    const csvFileName = 'filename';
+
+    [plugin, app] = buildPluginAndApp(csvTemplate, undefined, csvFileName);
+    await request(app)
+      .get('/csv')
+      .expect('Content-Type', /application\/json/)
+      .expect(400)
+      .expect((res) => {
+        expect(res.body).toEqual({ error: 'CSV feed template is not correct type.' });
+      });
+  });
+
   it('sets status to 500 if something blows up', async () => {
     
     plugin.model.pullStream.mockRejectedValue(Error('Couldnt get stream'));
