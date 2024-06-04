@@ -37,10 +37,12 @@ export = class OutputCsv {
       const { csvStream } = getCsvDataStream(csvTemplate, csvTemplateTransforms);
       const datasetStream = await this.getDatasetStream(req);
 
-      datasetStream
-        .on('error', (err) => this.returnError(res, err))
-        .pipe(csvStream)
-        .pipe(res);
+      datasetStream.on('error', (err) => {
+        if (req.next) {
+          req.next(err);
+        }
+      }).pipe(csvStream).pipe(res);
+
 
     } catch (err) {
       this.returnError(res, err);

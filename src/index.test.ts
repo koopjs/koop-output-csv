@@ -25,6 +25,12 @@ function buildPluginAndApp(csvTemplate, csvTemplateTransforms, csvFileName) {
     req.app.locals.csvTemplateTransforms = csvTemplateTransforms;
     res.locals.csvTemplate = csvTemplate;
     res.locals.csvFileName = csvFileName;
+    app.use((err, _req, res, _next) => {
+      res.status(err.status || 500)
+      res.send({
+        error: err.message
+      })
+    })
     next();
   }, plugin.serve.bind(plugin));
 
@@ -126,34 +132,20 @@ describe('Output Plugin', () => {
       });
   });
 
-  it('should return error when there is an error in stream', async () => {
-    const feedTemplate = {
-      id: '{{id}}',
-      title: '{{title}}',
-      modified: '{{modified:toISO}}',
-    };
-
-    const feedTemplateTransforms = {
-      toISO: (_key, val) => {
-        return new Date(val).toISOString();
-      }
-    };
-
-    const csvFileName = 'filename';
+  it('returns error if stream emits an error', async () => {
     const mockReadable = new PassThrough();
-    [plugin, app] = buildPluginAndApp(feedTemplate, feedTemplateTransforms, csvFileName);
-    setTimeout(() => {
-      mockReadable.emit('error', 'Error in the stream')
-    }, 10)
-    plugin.model.pullStream.mockResolvedValue(mockReadable);
 
+    plugin.model.pullStream.mockResolvedValue(mockReadable);
+    const mockError = new Error('stream error')
+
+    setTimeout(() => {
+      mockReadable.emit('error', mockError)
+    }, 200)
     await request(app)
       .get('/csv')
-      .expect('Content-Type', /application\/json/)
       .expect(500)
       .expect((res) => {
-        expect(res.body).toEqual({ error: 'Encountered error while processing request' });
+        expect(res.text).toEqual(JSON.stringify({ error: 'stream error' }));
       });
   });
-
 });
