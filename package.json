@@ -1,6 +1,6 @@
 {
   "name": "@koopjs/output-csv",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Koop output plugin for CSV",
   "main": "src/index.js",
   "engines": {
