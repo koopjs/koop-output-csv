@@ -32,7 +32,7 @@ export = class OutputCsv {
         throw new ServiceError('CSV feed template is not correct type.', 400);
       }
 
-      res.setHeader('Content-Disposition', `attachment; filename=${csvFileName}.csv`);
+      res.setHeader('Content-Disposition', `attachment; filename=${encodeURI(csvFileName)}.csv`);
 
       const { csvStream } = getCsvDataStream(csvTemplate, csvTemplateTransforms);
       const datasetStream = await this.getDatasetStream(req);
