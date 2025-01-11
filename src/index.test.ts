@@ -94,6 +94,38 @@ describe('Output Plugin', () => {
       });
   });
 
+  it('should encode filename', async () => {
+    const feedTemplate = {
+      id: '{{id}}',
+      title: '{{title}}',
+      modified: '{{modified:toISO}}',
+    };
+
+    const feedTemplateTransforms = {
+      toISO: (_key, val) => {
+        return new Date(val).toISOString();
+      }
+    };
+
+    const csvFileName = 'Ben & Jerry';
+
+    [plugin, app] = buildPluginAndApp(feedTemplate, feedTemplateTransforms, csvFileName);
+    await request(app)
+      .get('/csv')
+      .expect('Content-Type', 'text/csv')
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toBeDefined();
+        const csvBody = CSVToArray(res.text);
+        expect(plugin.model.pullStream).toHaveBeenCalledTimes(1);
+        expect(res.headers['content-disposition']).toBe(`attachment; filename=Ben%20&%20Jerry.csv`);
+        expect(csvBody.length).toBe(3);
+        expect(csvBody[0]).toStrictEqual([ 'id', 'title', 'modified' ]);
+        expect(csvBody[1]).toStrictEqual([ 'b08f51d9fbb34c4f9712533e26147903', 'Trail Mile Markers', '2023-05-08T01:23:44.000Z' ]);
+        expect(csvBody[2]).toStrictEqual([ '3a9e6d16d7374b5b9740888edc12ac13', 'Condo Approval Lots', '2022-10-05T13:28:03.000Z' ]);
+      });
+  });
+
   it('should return error if CSV template is incorrect format', async () => {
     const csvTemplate = 'test';
     const csvFileName = 'filename';
