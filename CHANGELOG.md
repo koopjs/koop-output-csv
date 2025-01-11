@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## 0.0.4
+Fixed
+- CSV filename [#11](https://github.com/koopjs/koop-output-csv/pull/11)
+
 ## 0.0.3
 Fixed
 - Handle stream error [#10](https://github.com/koopjs/koop-output-csv/pull/10)
